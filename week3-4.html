@@ -27,7 +27,7 @@
         <span class="footnote"><sup>by</sup> Wendell Philip Saligan</span>
     </div>
 
-    <div id="default" class="step slide" data-x="-1000" data-y="-1500">
+    <div id="comparing" class="step slide" data-x="-1000" data-y="-1500">
         <h1>Comparing Objects</h1>
         <ul>
 			<li>comparison operator (==) - object variables are compared in a simple manner, namely: Two object instances are equal if they have the same attributes and values, and are instances of the same class. </li>
@@ -35,7 +35,7 @@
         </ul>
     </div>
     
-    <div class="step slide" data-x="2000" data-y="-1500">
+    <div id="comparing-example" class="step slide" data-x="2000" data-y="-1500">
 		<h1>Example</h1>
 		<code>Two instances of the same class</code>
 		<code>	o1 == o2 : TRUE</code>
@@ -56,7 +56,7 @@
 		<code>	o1 !== o2 : TRUE </code>
     </div>
 
-    <div class="step slide" data-x="0" data-y="-1500">
+    <div id="predefined-variables" class="step slide" data-x="0" data-y="-1500">
 		<h1>Predefined Variables</h1>
 		<ul class="sm">
 			<li><span>Superglobals</span> — Superglobals are built-in variables that are always available in all scopes.</li>
@@ -77,7 +77,7 @@
 		</ul>
     </div>
 
-    <div class="step slide" data-x="1000" data-y="-1500">
+    <div id="globals" class="step slide" data-x="1000" data-y="-1500">
 		<h1>$GLOBALS</h1>
 		<q>An associative array containing references to all variables which are currently defined in the global scope of the script. The variable names are the keys of the array.</q>
 		<pre><code class="php"><span class="preprocessor">&lt;?php</span>
@@ -93,12 +93,12 @@ test();
 <span class="preprocessor">?&gt;</span></code></pre>
     </div>
     
-    <div class="step slide" data-x="3000" data-y="-1500">
+    <div id="server" class="step slide" data-x="3000" data-y="-1500">
 		<h1>$_SERVER</h1>
 		<q>$_SERVER is an array containing information such as headers, paths, and script locations. The entries in this array are created by the web server. There is no guarantee that every web server will provide any of these; servers may omit some, or provide others not listed here. That said, a large number of these variables are accounted for in the » CGI/1.1 specification, so you should be able to expect those.</q>
     </div>
     
-    <div class="step slide" data-x="4000" data-y="-1500">
+    <div id="get" class="step slide" data-x="4000" data-y="-1500">
 		<h1>$_GET</h1>
 		<q>An associative array of variables passed to the current script via the URL parameters.</q>
 		<pre><code class="php"><span class="preprocessor">&lt;?php</span>
@@ -110,7 +110,7 @@ test();
 		<span class="output">Hello John!</span>
     </div>
     
-    <div class="step slide" data-x="5000" data-y="-1500">
+    <div id="post" class="step slide" data-x="5000" data-y="-1500">
 		<h1>$_POST</h1>
 		<q>An associative array of variables passed to the current script via the HTTP POST method.</q>
 		<pre><code class="php"><span class="preprocessor">&lt;?php</span>
@@ -122,24 +122,24 @@ test();
 		<span class="output">Hello Jane!</span>
     </div>
     
-    <div class="step slide" data-x="6000" data-y="-1500">
+    <div id="request" class="step slide" data-x="6000" data-y="-1500">
 		<h1>$_REQUEST</h1>
 		<q>An associative array that by default contains the contents of $_GET, $_POST and $_COOKIE.</q>
     </div>
     
-    <div class="step slide" data-x="7000" data-y="-1500">
+    <div id="session" class="step slide" data-x="7000" data-y="-1500">
 		<h1>$_SESSION</h1>
 		<q>An associative array containing session variables available to the current script.</q>
     </div>
     
-    <div class="step slide" data-x="8000" data-y="-1500">
+    <div id="env" class="step slide" data-x="8000" data-y="-1500">
 		<h1>$_ENV</h1>
 		<q>An associative array of variables passed to the current script via the environment method.</q>
 		<q>These variables are imported into PHP's global namespace from the environment under which the PHP parser is running. Many are provided by the shell under which PHP is running and different systems are likely running different kinds of shells, a definitive list is impossible. Please see your shell's documentation for a list of defined environment variables.</q>
 		<q>Other environment variables include the CGI variables, placed there regardless of whether PHP is running as a server module or CGI processor.</q>
     </div>
     
-    <div class="step slide" data-x="9000" data-y="-1500">
+    <div id="cookie" class="step slide" data-x="9000" data-y="-1500">
 		<h1>$_COOKIE</h1>
 		<q>An associative array of variables passed to the current script via HTTP Cookies.</q>
 		<pre><code class="php"><span class="preprocessor">&lt;?php</span>
@@ -151,10 +151,13 @@ test();
 		<span class="output">Hello May!</span>
     </div>
     
-    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
-        <p>It's a <strong>presentation tool</strong> <br/>
-        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+    <div id="functions" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+        <h1>FUNCTIONS</h1>
+        <ul>
+			<li>Variable Functions.</li>
+			<li>Internal (built-in) functions.</li>
+			<li>Anonymous functions.</li>
+        </ul>
     </div>
 
     <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">

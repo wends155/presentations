@@ -517,6 +517,10 @@ a:hover {
 	line-height: 25px;
 }
 
+/* FUNCTIONS */
+#functions li {
+	list-style-type: square;
+}
 
 
 /* IMPRESS NOT SUPPORTED STYLES */
