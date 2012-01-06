@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Advanced PHP Programming</title>
+    
+    <meta name="description" content="Advanced PHP Programming">
+    <meta name="author" content="Wendell Philip Saligan" />
+
+    
+
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/vs.css" rel="stylesheet" />
+</head>
+<body>
+
+<div id="impress" class="impress-not-supported">
+
+    <div class="fallback-message">
+        <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b> or <b>Safari</b> browser. Firefox 10 and Internet Explorer 10 <i>should</i> also handle it.</p>
+    </div>
+    
+    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
+        <span class="try">Advanced</span>
+        <h1>PHP<sup>programming</sup></h1>
+        <span class="footnote"><sup>by</sup> Wendell Philip Saligan</span>
+    </div>
+
+    <div id="default" class="step slide" data-x="-1000" data-y="-1500">
+        <h1>Comparing Objects</h1>
+        <ul>
+			<li>comparison operator (==) - object variables are compared in a simple manner, namely: Two object instances are equal if they have the same attributes and values, and are instances of the same class. </li>
+			<li>identity operator (===) - object variables are identical if and only if they refer to the same instance of the same class.</li>
+        </ul>
+    </div>
+    
+    <div class="step slide" data-x="2000" data-y="-1500">
+		<h1>Example</h1>
+		<code>Two instances of the same class</code>
+		<code>	o1 == o2 : TRUE</code>
+		<code>	o1 != o2 : FALSE</code>
+		<code>	o1 === o2 : FALSE</code>
+		<code>	o1 !== o2 : TRUE</code>
+
+		<code>Two references to the same instance</code>
+		<code>	o1 == o2 : TRUE</code>
+		<code>	o1 != o2 : FALSE</code>
+		<code>	o1 === o2 : TRUE</code>
+		<code>	o1 !== o2 : FALSE</code>
+
+		<code>Instances of two different classes</code>
+		<code>	o1 == o2 : FALSE</code>
+		<code>	o1 != o2 : TRUE</code>
+		<code>	o1 === o2 : FALSE</code>
+		<code>	o1 !== o2 : TRUE </code>
+    </div>
+
+    <div class="step slide" data-x="0" data-y="-1500">
+		<h1>Predefined Variables</h1>
+		<ul class="sm">
+			<li><span>Superglobals</span> — Superglobals are built-in variables that are always available in all scopes.</li>
+			<li><span>$GLOBALS</span> — References all variables available in global scope.</li>
+			<li><span>$_SERVER</span> — Server and execution environment information.</li>
+			<li><span>$_GET</span> — HTTP GET variables.</li>
+			<li><span>$_POST</span> — HTTP POST variables.</li>
+			<li><span>$_FILES</span> — HTTP File Upload variables.</li>
+			<li><span>$_REQUEST</span> — HTTP Request variables.</li>
+			<li><span>$_SESSION</span> — Session variables.</li>
+			<li><span>$_ENV</span> — Environment variables.</li>
+			<li><span>$_COOKIE</span> — HTTP Cookies.</li>
+			<li><span>$php_errormsg</span> — The previous error message.</li>
+			<li><span>$HTTP_RAW_POST_DATA</span> — Raw POST data.</li>
+			<li><span>$http_response_header</span> — HTTP response headers.</li>
+			<li><span>$argc</span> — The number of arguments passed to script</li>
+			<li><span>$argv</span> — Array of arguments passed to script.</li>
+		</ul>
+    </div>
+
+    <div class="step slide" data-x="1000" data-y="-1500">
+		<h1>$GLOBALS</h1>
+		<q>An associative array containing references to all variables which are currently defined in the global scope of the script. The variable names are the keys of the array.</q>
+		<pre><code class="php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">function</span> test() {
+    <span class="variable">$foo</span> = <span class="string">"local variable"</span>;
+
+    <span class="keyword">echo</span> <span class="string">'$foo in global scope: '</span> . <span class="variable">$GLOBALS</span>[<span class="string">"foo"</span>] . <span class="string">"\n"</span>;
+    <span class="keyword">echo</span> <span class="string">'$foo in current scope: '</span> . <span class="variable">$foo</span> . <span class="string">"\n"</span>;
+}
+
+<span class="variable">$foo</span> = <span class="string">"Example content"</span>;
+test();
+<span class="preprocessor">?&gt;</span></code></pre>
+    </div>
+    
+    <div class="step slide" data-x="3000" data-y="-1500">
+		<h1>$_SERVER</h1>
+		<q>$_SERVER is an array containing information such as headers, paths, and script locations. The entries in this array are created by the web server. There is no guarantee that every web server will provide any of these; servers may omit some, or provide others not listed here. That said, a large number of these variables are accounted for in the » CGI/1.1 specification, so you should be able to expect those.</q>
+    </div>
+    
+    <div class="step slide" data-x="4000" data-y="-1500">
+		<h1>$_GET</h1>
+		<q>An associative array of variables passed to the current script via the URL parameters.</q>
+		<pre><code class="php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">echo</span> <span class="string">'Hello '</span> . htmlspecialchars(<span class="variable">$_GET</span>[<span class="string">"name"</span>]) . <span class="string">'!'</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+		<p>Assuming the user entered:</p>
+		<span class="output">http://localhost/index.php?name=John</span>
+		<p>Output</p>
+		<span class="output">Hello John!</span>
+    </div>
+    
+    <div class="step slide" data-x="5000" data-y="-1500">
+		<h1>$_POST</h1>
+		<q>An associative array of variables passed to the current script via the HTTP POST method.</q>
+		<pre><code class="php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">echo</span> <span class="string">'Hello '</span> . htmlspecialchars(<span class="variable">$_POST</span>[<span class="string">"name"</span>]) . <span class="string">'!'</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+		<p>Assuming the user POSTed</p>
+		<span class="output">name = Jane</span>
+		<p>Output:</p>
+		<span class="output">Hello Jane!</span>
+    </div>
+    
+    <div class="step slide" data-x="6000" data-y="-1500">
+		<h1>$_REQUEST</h1>
+		<q>An associative array that by default contains the contents of $_GET, $_POST and $_COOKIE.</q>
+    </div>
+    
+    <div class="step slide" data-x="7000" data-y="-1500">
+		<h1>$_SESSION</h1>
+		<q>An associative array containing session variables available to the current script.</q>
+    </div>
+    
+    <div class="step slide" data-x="8000" data-y="-1500">
+		<h1>$_ENV</h1>
+		<q>An associative array of variables passed to the current script via the environment method.</q>
+		<q>These variables are imported into PHP's global namespace from the environment under which the PHP parser is running. Many are provided by the shell under which PHP is running and different systems are likely running different kinds of shells, a definitive list is impossible. Please see your shell's documentation for a list of defined environment variables.</q>
+		<q>Other environment variables include the CGI variables, placed there regardless of whether PHP is running as a server module or CGI processor.</q>
+    </div>
+    
+    <div class="step slide" data-x="9000" data-y="-1500">
+		<h1>$_COOKIE</h1>
+		<q>An associative array of variables passed to the current script via HTTP Cookies.</q>
+		<pre><code class="php"><span class="preprocessor">&lt;?php</span>
+<span class="keyword">echo</span> <span class="string">'Hello '</span> . htmlspecialchars(<span class="variable">$_COOKIE</span>[<span class="string">"name"</span>]) . <span class="string">'!'</span>;
+<span class="preprocessor">?&gt;</span></code></pre>
+		<p>Assuming the "name" cookie has been set earlier using setcookie(), and the value of name is May</p>
+		<br />
+		<p>Output:</p>
+		<span class="output">Hello May!</span>
+    </div>
+    
+    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+        <p>It's a <strong>presentation tool</strong> <br/>
+        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
+        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
+    </div>
+
+    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
+    </div>
+
+    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-600" data-rotate="300" data-scale="1">
+        <p>and <b>tiny</b> ideas</p>
+    </div>
+
+    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
+    </div>
+
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+</div>
+
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+
+<script src="js/impress.js"></script>
+
+
+
+</body>
+</html>
